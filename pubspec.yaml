@@ -26,3 +26,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  fonts:
+    - family: WorkSans
+      fonts:
+        - asset: fonts/WorkSans-Regular.ttf
+        - asset: fonts/WorkSans-Medium.ttf
+          weight: 500
+        - asset: fonts/WorkSans-SemiBold.ttf
+          weight: 600
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
