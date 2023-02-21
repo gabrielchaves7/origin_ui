@@ -18,6 +18,7 @@ dependencies:
   intl: ^0.17.0
   origin_design_system:
     path: ../origin_design_system
+  equatable: ^2.0.5
 
 dev_dependencies:
   bloc_test: ^9.1.1
