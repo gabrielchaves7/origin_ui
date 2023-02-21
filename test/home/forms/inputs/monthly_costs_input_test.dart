@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formz/formz.dart';
-import 'package:origin_ui/home/forms/monthly_costs_form.dart';
+import 'package:origin_ui/home/forms/monthly_costs_input.dart';
 
 void main() {
   testWidgets('Formz status should be invalid if monthly income is empty', (tester) async {

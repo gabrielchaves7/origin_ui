@@ -2,9 +2,9 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formz/formz.dart';
-import 'package:origin_ui/home/forms/annual_income_form.dart';
+import 'package:origin_ui/home/forms/annual_income_input.dart';
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
-import 'package:origin_ui/home/forms/monthly_costs_form.dart';
+import 'package:origin_ui/home/forms/monthly_costs_input.dart';
 
 void main() {
   testWidgets('Financial wellness form status should be invalid if annual income is empty', (tester) async {
