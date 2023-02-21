@@ -7,7 +7,17 @@ import 'package:origin_ui/home/forms/monthly_costs_input.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeState(financialWellnessForm: FinancialWellnessForm()));
+  HomeCubit()
+      : super(HomeState(financialWellnessForm: FinancialWellnessForm()));
+
+  FinancialWellnessForm get financialWellnessForm =>
+      state.financialWellnessForm;
+
+  AnnualIncomeInput get annualIncomeInput =>
+      state.financialWellnessForm.annualIncomeInput;
+
+  MonthlyCostsInput get monthlyCostsInput =>
+      state.financialWellnessForm.monthlyCostsInput;
 
   void annualIncomeChanged(String value) => emit(
         state.copyWith(

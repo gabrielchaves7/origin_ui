@@ -9,7 +9,7 @@ void main() {
   setUp(() {});
   group('Home Cubit', () {
     blocTest(
-      'should update annual income form status when annualIncomeChanged is called ',
+      'should update annual income form status when annualIncomeChanged is called',
       build: () {
         return HomeCubit();
       },
@@ -18,10 +18,7 @@ void main() {
       },
       expect: () => [isA<HomeState>()],
       verify: (homeCubit) {
-        final state = homeCubit.state;
-        expect(state.financialWellnessForm.annualIncomeInput.status, FormzInputStatus.valid);
-        expect(state.financialWellnessForm.monthlyCostsInput.status, FormzInputStatus.pure);
-        expect(state.financialWellnessForm.status, FormzStatus.invalid);
+        expect(homeCubit.annualIncomeInput.status, FormzInputStatus.valid);
       },
     );
 
@@ -35,10 +32,7 @@ void main() {
       },
       expect: () => [isA<HomeState>()],
       verify: (homeCubit) {
-        final state = homeCubit.state;
-        expect(state.financialWellnessForm.annualIncomeInput.status, FormzInputStatus.pure);
-        expect(state.financialWellnessForm.monthlyCostsInput.status, FormzInputStatus.valid);
-        expect(state.financialWellnessForm.status, FormzStatus.invalid);
+        expect(homeCubit.annualIncomeInput.status, FormzInputStatus.pure);
       },
     );
 
@@ -54,10 +48,45 @@ void main() {
       },
       expect: () => [isA<HomeState>(), isA<HomeState>()],
       verify: (homeCubit) {
-        final state = homeCubit.state;
-        expect(state.financialWellnessForm.annualIncomeInput.status, FormzInputStatus.valid);
-        expect(state.financialWellnessForm.monthlyCostsInput.status, FormzInputStatus.valid);
-        expect(state.financialWellnessForm.status, FormzStatus.valid);
+        expect(homeCubit.annualIncomeInput.status, FormzInputStatus.valid);
+        expect(homeCubit.monthlyCostsInput.status, FormzInputStatus.valid);
+        expect(homeCubit.financialWellnessForm.status, FormzStatus.valid);
+      },
+    );
+
+    blocTest(
+      'financial wellness form should have invalid status if annual income status is pure',
+      build: () {
+        return HomeCubit();
+      },
+      act: (HomeCubit homeCubit) async {
+        homeCubit.monthlyCostsChanged('100');
+      },
+      expect: () => [
+        isA<HomeState>(),
+      ],
+      verify: (homeCubit) {
+        expect(homeCubit.annualIncomeInput.status, FormzInputStatus.pure);
+        expect(homeCubit.monthlyCostsInput.status, FormzInputStatus.valid);
+        expect(homeCubit.financialWellnessForm.status, FormzStatus.invalid);
+      },
+    );
+
+    blocTest(
+      'financial wellness form should have invalid status if monthly costs status is pure',
+      build: () {
+        return HomeCubit();
+      },
+      act: (HomeCubit homeCubit) async {
+        homeCubit.annualIncomeChanged('1000');
+      },
+      expect: () => [
+        isA<HomeState>(),
+      ],
+      verify: (homeCubit) {
+        expect(homeCubit.annualIncomeInput.status, FormzInputStatus.valid);
+        expect(homeCubit.monthlyCostsInput.status, FormzInputStatus.pure);
+        expect(homeCubit.financialWellnessForm.status, FormzStatus.invalid);
       },
     );
   });
