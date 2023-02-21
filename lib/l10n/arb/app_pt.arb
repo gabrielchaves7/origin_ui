@@ -1,5 +1,9 @@
 {
     "@@locale": "pt",
     "title": "Vamos descobrir a sua ",
-    "titleBold": "pontuação de saúde financeira."
+    "titleBold": "pontuação de saúde financeira.",
+    "homeCardTitle": "Teste de saúde financeira",
+    "homeCardSubtitle": "Coloque as suas informações financeiras abaixo",
+    "annualIncomeInputLabel": "Salário anual",
+    "monthlyCostsInputLabel": "Gastos mensais"
 }
