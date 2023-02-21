@@ -44,58 +44,69 @@ class HomeView extends StatelessWidget {
             ),
           ),
           OriginCard(
-            child: Column(
-              children: [
-                const OriginIcon(
-                  iconPath: Assets.origin_design_system$assets_origin_icon_circle_svg,
-                ),
-                const SizedBox(height: OriginSpacing.xx),
-                Text(
-                  l10n.homeCardTitle,
-                  textAlign: TextAlign.center,
-                ).headingSmall,
-                Text(
-                  l10n.homeCardSubtitle,
-                  textAlign: TextAlign.center,
-                ).paragraph,
-                const SizedBox(height: OriginSpacing.xx),
-                OriginTextField(
-                  label: l10n.homeAnnualIncomeInputLabel,
-                  textInputType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    NumericTextFormatter(),
-                    LengthLimitingTextInputFormatter(11),
-                  ],
-                  icon: const OriginIcon(
-                    iconPath: Assets.origin_design_system$assets_dollar_sign_svg,
-                    size: OriginIconSize.extraSmall,
+            child: BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) => Column(
+                children: [
+                  const OriginIcon(
+                    iconPath: Assets
+                        .origin_design_system$assets_origin_icon_circle_svg,
                   ),
-                ),
-                const SizedBox(height: OriginSpacing.xx),
-                OriginTextField(
-                  label: l10n.homeMonthlyCostsInputLabel,
-                  textInputType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    NumericTextFormatter(),
-                    LengthLimitingTextInputFormatter(11),
-                  ],
-                  icon: const OriginIcon(
-                    iconPath: Assets.origin_design_system$assets_dollar_sign_svg,
-                    size: OriginIconSize.extraSmall,
+                  const SizedBox(height: OriginSpacing.xx),
+                  Text(
+                    l10n.homeCardTitle,
+                    textAlign: TextAlign.center,
+                  ).headingSmall,
+                  Text(
+                    l10n.homeCardSubtitle,
+                    textAlign: TextAlign.center,
+                  ).paragraph,
+                  const SizedBox(height: OriginSpacing.xx),
+                  OriginTextField(
+                    label: l10n.homeAnnualIncomeInputLabel,
+                    textInputType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      NumericTextFormatter(),
+                      LengthLimitingTextInputFormatter(11),
+                    ],
+                    icon: const OriginIcon(
+                      iconPath:
+                          Assets.origin_design_system$assets_dollar_sign_svg,
+                      size: OriginIconSize.extraSmall,
+                    ),
+                    onChanged: (value) =>
+                        context.read<HomeCubit>().annualIncomeChanged(value),
+                    errorText: context
+                        .read<HomeCubit>()
+                        .annualIncomeInput
+                        .errorText(l10n),
                   ),
-                ),
-                const SizedBox(height: OriginSpacing.xx),
-                SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: Text(l10n.homeContinueButton),
+                  const SizedBox(height: OriginSpacing.xx),
+                  OriginTextField(
+                    label: l10n.homeMonthlyCostsInputLabel,
+                    textInputType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      NumericTextFormatter(),
+                      LengthLimitingTextInputFormatter(11),
+                    ],
+                    icon: const OriginIcon(
+                      iconPath:
+                          Assets.origin_design_system$assets_dollar_sign_svg,
+                      size: OriginIconSize.extraSmall,
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: OriginSpacing.xx),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 56,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      child: Text(l10n.homeContinueButton),
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         ],

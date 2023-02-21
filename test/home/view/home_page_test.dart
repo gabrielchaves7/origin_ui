@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:origin_design_system/origin_design_system.dart';
 
@@ -6,14 +5,9 @@ import 'package:origin_ui/home/home.dart';
 
 import '../../helpers/helpers.dart';
 
-class MockHomeCubit extends MockCubit<int> implements HomeCubit {}
-
 void main() {
-  // setUpAll(() {
-  //   TestWidgetsFlutterBinding.ensureInitialized();
-  // });
   group('HomePage', () {
-    testWidgets('renders HomeView', (tester) async {
+    testWidgets('renders HomePage', (tester) async {
       await tester.pumpApp(const HomePage());
       expect(find.byType(HomeView), findsOneWidget);
 
@@ -33,6 +27,31 @@ void main() {
       expect(find.text('Monthly Costs'), findsOneWidget);
       expect(find.byType(OriginTextField), findsNWidgets(2));
       expect(find.text('Continue'), findsOneWidget);
+    });
+
+    testWidgets(
+        'should render error text if annual income input has value equal to zero',
+        (tester) async {
+      await tester.pumpApp(const HomePage());
+      await tester.enterText(find.byType(OriginTextField).first, '0');
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Annual income should be greater than zero.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets(
+        'should render error text if annual income input has invalid value',
+        (tester) async {
+      await tester.pumpApp(const HomePage());
+      await tester.enterText(find.byType(OriginTextField).first, '0');
+      await tester.enterText(find.byType(OriginTextField).first, '');
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Annual income value is invalid.'),
+        findsOneWidget,
+      );
     });
   });
 }
