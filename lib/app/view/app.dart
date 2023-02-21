@@ -12,20 +12,6 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primaryColor: OriginColors.brandColorPrimary,
         fontFamily: 'WorkSans',
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))),
-            backgroundColor: MaterialStateProperty.all<Color>(
-              OriginColors.brandColorPrimary,
-            ),
-            textStyle: MaterialStateProperty.all<TextStyle>(
-              OriginTextStyles.button,
-            ),
-            foregroundColor: MaterialStateProperty.all<Color>(
-              OriginColors.neutralWhite,
-            ),
-          ),
-        ),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
