@@ -95,6 +95,12 @@ class HomeView extends StatelessWidget {
                           Assets.origin_design_system$assets_dollar_sign_svg,
                       size: OriginIconSize.extraSmall,
                     ),
+                    onChanged: (value) =>
+                        context.read<HomeCubit>().monthlyCostsChanged(value),
+                    errorText: context
+                        .read<HomeCubit>()
+                        .monthlyCostsInput
+                        .errorText(l10n),
                   ),
                   const SizedBox(height: OriginSpacing.xx),
                   SizedBox(

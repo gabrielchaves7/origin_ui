@@ -8,5 +8,7 @@
     "homeMonthlyCostsInputLabel": "Monthly Costs",
     "homeContinueButton": "Continue",
     "homeAnnualIncomeInputInvalidError": "Annual income value is invalid.",
-    "homeAnnualIncomeInputValueIsZeroError": "Annual income should be greater than zero."
+    "homeAnnualIncomeInputValueIsZeroError": "Annual income must be greater than zero.",
+    "homeMonthlyCostsInputInvalidError": "Monthly Costs value is invalid.",
+    "homeMonthlyCostsInputValueIsZeroError": "Monthly Costs must be greater than zero."
 }

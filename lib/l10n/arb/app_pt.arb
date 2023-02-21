@@ -8,5 +8,7 @@
     "homeMonthlyCostsInputLabel": "Gastos mensais",
     "homeContinueButton": "Continuar",
     "homeAnnualIncomeInputInvalidError": "O salário anual informado é inválido.",
-    "homeAnnualIncomeInputValueIsZeroError": "O salário anual deve ser maior que zero."
+    "homeAnnualIncomeInputValueIsZeroError": "O salário anual deve ser maior que zero.",
+        "homeMonthlyCostsInputInvalidError": "Os gastos mensais informado é inválido.",
+    "homeMonthlyCostsInputValueIsZeroError": "Os gastos mensais deve ser maior que zero."
 }

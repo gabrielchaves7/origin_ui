@@ -36,7 +36,7 @@ void main() {
       await tester.enterText(find.byType(OriginTextField).first, '0');
       await tester.pumpAndSettle();
       expect(
-        find.text('Annual income should be greater than zero.'),
+        find.text('Annual income must be greater than zero.'),
         findsOneWidget,
       );
     });
@@ -50,6 +50,31 @@ void main() {
       await tester.pumpAndSettle();
       expect(
         find.text('Annual income value is invalid.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets(
+        'should render error text if monthly costs input has value equal to zero',
+        (tester) async {
+      await tester.pumpApp(const HomePage());
+      await tester.enterText(find.byType(OriginTextField).last, '0');
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Monthly Costs must be greater than zero.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets(
+        'should render error text if monthly costs input has invalid value',
+        (tester) async {
+      await tester.pumpApp(const HomePage());
+      await tester.enterText(find.byType(OriginTextField).last, '0');
+      await tester.enterText(find.byType(OriginTextField).last, '');
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Monthly Costs value is invalid.'),
         findsOneWidget,
       );
     });

@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:origin_ui/l10n/l10n.dart';
 
 enum MonthlyCostsInputError { invalid, valueIsZero }
 
@@ -20,5 +21,18 @@ class MonthlyCostsInput extends FormzInput<String, MonthlyCostsInputError> {
     } catch (e) {
       return MonthlyCostsInputError.invalid;
     }
+  }
+
+  String? errorText(AppLocalizations l10n) {
+    String? errorText;
+    if (pure) {
+      errorText = null;
+    } else if (error == MonthlyCostsInputError.invalid) {
+      errorText = l10n.homeMonthlyCostsInputInvalidError;
+    } else if (error == MonthlyCostsInputError.valueIsZero) {
+      errorText = l10n.homeMonthlyCostsInputValueIsZeroError;
+    }
+
+    return errorText;
   }
 }
