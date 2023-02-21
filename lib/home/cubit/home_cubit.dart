@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:formz/formz.dart';
 
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
 import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
@@ -19,6 +20,9 @@ class HomeCubit extends Cubit<HomeState> {
 
   MonthlyCostsInput get monthlyCostsInput =>
       state.financialWellnessForm.monthlyCostsInput;
+
+  bool get formIsValid =>
+      state.financialWellnessForm.status == FormzStatus.valid;
 
   void annualIncomeChanged(String value) => emit(
         state.copyWith(
