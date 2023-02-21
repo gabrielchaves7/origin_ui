@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:origin_design_system/origin_design_system.dart';
 
 import 'package:origin_ui/home/home.dart';
 
@@ -23,6 +24,15 @@ void main() {
         ),
         findsOneWidget,
       );
+      expect(find.text('Financial wellness test'), findsOneWidget);
+      expect(
+        find.text('Enter your financial information bellow'),
+        findsOneWidget,
+      );
+      expect(find.text('Annual income'), findsOneWidget);
+      expect(find.text('Monthly Costs'), findsOneWidget);
+      expect(find.byType(OriginTextField), findsNWidgets(2));
+      expect(find.text('Continue'), findsOneWidget);
     });
   });
 }
