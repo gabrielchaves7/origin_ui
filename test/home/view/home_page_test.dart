@@ -10,6 +10,10 @@ void main() {
     testWidgets('renders HomePage', (tester) async {
       await tester.pumpApp(const HomePage());
       expect(find.byType(HomeView), findsOneWidget);
+      expect(find.byType(OriginPage), findsOneWidget);
+      expect(find.byType(OriginTextField), findsNWidgets(2));
+      expect(find.byType(OriginIcon), findsNWidgets(4));
+      expect(find.byType(OriginOutlinedButton), findsOneWidget);
 
       expect(
         find.text(
@@ -25,8 +29,14 @@ void main() {
       );
       expect(find.text('Annual income'), findsOneWidget);
       expect(find.text('Monthly Costs'), findsOneWidget);
-      expect(find.byType(OriginTextField), findsNWidgets(2));
+
       expect(find.text('Continue'), findsOneWidget);
+      expect(
+        find.text(
+          "Your financial information is encrypted and secure. We'll never share or sell any of your personal data.",
+        ),
+        findsOneWidget,
+      );
     });
 
     testWidgets(

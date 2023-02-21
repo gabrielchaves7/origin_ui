@@ -10,5 +10,6 @@
     "homeAnnualIncomeInputInvalidError": "Annual income value is invalid.",
     "homeAnnualIncomeInputValueIsZeroError": "Annual income must be greater than zero.",
     "homeMonthlyCostsInputInvalidError": "Monthly Costs value is invalid.",
-    "homeMonthlyCostsInputValueIsZeroError": "Monthly Costs must be greater than zero."
+    "homeMonthlyCostsInputValueIsZeroError": "Monthly Costs must be greater than zero.",
+    "homeFooter": "Your financial information is encrypted and secure. We'll never share or sell any of your personal data."
 }
