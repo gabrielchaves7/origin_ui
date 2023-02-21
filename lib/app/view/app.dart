@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:origin_design_system/origin_design_system.dart';
 import 'package:origin_ui/home/view/home_page.dart';
 import 'package:origin_ui/l10n/l10n.dart';
 
@@ -9,11 +10,23 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-          colorScheme: ColorScheme.fromSwatch(
-            accentColor: const Color(0xFF13B9FF),
+        primaryColor: OriginColors.brandColorPrimary,
+        fontFamily: 'WorkSans',
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))),
+            backgroundColor: MaterialStateProperty.all<Color>(
+              OriginColors.brandColorPrimary,
+            ),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              OriginTextStyles.button,
+            ),
+            foregroundColor: MaterialStateProperty.all<Color>(
+              OriginColors.neutralWhite,
+            ),
           ),
-          fontFamily: 'WorkSans'),
+        ),
+      ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: const HomePage(),
