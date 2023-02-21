@@ -6,5 +6,7 @@
     "homeCardSubtitle": "Enter your financial information bellow",
     "homeAnnualIncomeInputLabel": "Annual income",
     "homeMonthlyCostsInputLabel": "Monthly Costs",
-    "homeContinueButton": "Continue"
+    "homeContinueButton": "Continue",
+    "homeAnnualIncomeInputInvalidError": "Annual income value is invalid.",
+    "homeAnnualIncomeInputValueIsZeroError": "Annual income should be greater than zero."
 }

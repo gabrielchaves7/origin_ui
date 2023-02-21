@@ -6,5 +6,7 @@
     "homeCardSubtitle": "Coloque as suas informações financeiras abaixo",
     "homeAnnualIncomeInputLabel": "Salário anual",
     "homeMonthlyCostsInputLabel": "Gastos mensais",
-    "homeContinueButton": "Continuar"
+    "homeContinueButton": "Continuar",
+    "homeAnnualIncomeInputInvalidError": "O salário anual informado é inválido.",
+    "homeAnnualIncomeInputValueIsZeroError": "O salário anual deve ser maior que zero."
 }
