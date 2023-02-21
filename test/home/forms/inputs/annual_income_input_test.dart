@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formz/formz.dart';
-import 'package:origin_ui/home/forms/annual_income_input.dart';
+import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
 
 void main() {
   testWidgets('Formz status should be invalid if annual income is empty',

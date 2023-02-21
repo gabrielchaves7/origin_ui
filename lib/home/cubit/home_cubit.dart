@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:origin_ui/home/forms/annual_income_input.dart';
+
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
-import 'package:origin_ui/home/forms/monthly_costs_input.dart';
+import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
+import 'package:origin_ui/home/forms/inputs/monthly_costs_input.dart';
 
 part 'home_state.dart';
 

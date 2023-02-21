@@ -1,6 +1,6 @@
 import 'package:formz/formz.dart';
-import 'package:origin_ui/home/forms/annual_income_input.dart';
-import 'package:origin_ui/home/forms/monthly_costs_input.dart';
+import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
+import 'package:origin_ui/home/forms/inputs/monthly_costs_input.dart';
 
 class FinancialWellnessForm with FormzMixin {
   FinancialWellnessForm({
