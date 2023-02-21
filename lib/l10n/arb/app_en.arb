@@ -1,9 +1,10 @@
 {
     "@@locale": "en",
-    "title": "Let's find out your ",
-    "titleBold": "financial wellness score.",
+    "homeTitle": "Let's find out your ",
+    "homeTitleBold": "financial wellness score.",
     "homeCardTitle": "Financial wellness test",
     "homeCardSubtitle": "Enter your financial information bellow",
-    "annualIncomeInputLabel": "Annual income",
-    "monthlyCostsInputLabel": "Monthly Costs",
+    "homeAnnualIncomeInputLabel": "Annual income",
+    "homeMonthlyCostsInputLabel": "Monthly Costs",
+    "homeContinueButton": "Continue"
 }

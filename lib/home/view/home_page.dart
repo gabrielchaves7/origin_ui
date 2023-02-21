@@ -32,11 +32,11 @@ class HomeView extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                text: l10n.title,
+                text: l10n.homeTitle,
                 style: OriginTextStyles.subtitle,
                 children: <TextSpan>[
                   TextSpan(
-                    text: l10n.titleBold,
+                    text: l10n.homeTitleBold,
                     style: OriginTextStyles.subtitleSemibold,
                   ),
                 ],
@@ -60,7 +60,7 @@ class HomeView extends StatelessWidget {
                 ).paragraph,
                 const SizedBox(height: OriginSpacing.xx),
                 OriginTextField(
-                  label: l10n.annualIncomeInputLabel,
+                  label: l10n.homeAnnualIncomeInputLabel,
                   textInputType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -74,7 +74,7 @@ class HomeView extends StatelessWidget {
                 ),
                 const SizedBox(height: OriginSpacing.xx),
                 OriginTextField(
-                  label: l10n.monthlyCostsInputLabel,
+                  label: l10n.homeMonthlyCostsInputLabel,
                   textInputType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -92,7 +92,7 @@ class HomeView extends StatelessWidget {
                   height: 56,
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: const Text('Continue'),
+                    child: Text(l10n.homeContinueButton),
                   ),
                 ),
               ],
