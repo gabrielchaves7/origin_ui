@@ -72,9 +72,8 @@ class HomeView extends StatelessWidget {
                             _inputsDesktopLayout(context, l10n, homeCubit)
                           else
                             _inputsMobileLayout(context, l10n, homeCubit),
-                          const SizedBox(height: OriginSpacing.xx),
                           OriginOutlinedButton(
-                            onPressed: homeCubit.formIsValid ? () {} : null,
+                            onPressed: () => homeCubit.onContinue(l10n),
                             child: Text(l10n.homeContinueButton),
                           ),
                         ],
@@ -112,7 +111,7 @@ class HomeView extends StatelessWidget {
     return FinancialWellnessInput(
       label: l10n.homeAnnualIncomeInputLabel,
       onChanged: homeCubit.annualIncomeChanged,
-      errorText: homeCubit.annualIncomeInput.errorText(l10n),
+      errorText: homeCubit.annualIncomeErrorText,
       homeCubit: homeCubit,
     );
   }
@@ -121,7 +120,7 @@ class HomeView extends StatelessWidget {
     return FinancialWellnessInput(
       label: l10n.homeMonthlyCostsInputLabel,
       onChanged: homeCubit.monthlyCostsChanged,
-      errorText: homeCubit.monthlyCostsInput.errorText(l10n),
+      errorText: homeCubit.monthlyCostsErrorText,
       homeCubit: homeCubit,
     );
   }
@@ -131,13 +130,16 @@ class HomeView extends StatelessWidget {
     AppLocalizations l10n,
     HomeCubit homeCubit,
   ) {
-    return Column(children: [
-      _annualIncomeInput(l10n, homeCubit),
-      const SizedBox(
-        height: OriginSpacing.xx,
-      ),
-      _monthlyCostsInput(l10n, homeCubit)
-    ]);
+    return Column(
+      children: [
+        _annualIncomeInput(l10n, homeCubit),
+        const SizedBox(
+          height: OriginSpacing.xx,
+        ),
+        _monthlyCostsInput(l10n, homeCubit),
+        const SizedBox(height: OriginSpacing.xx),
+      ],
+    );
   }
 
   Widget _inputsDesktopLayout(
@@ -147,11 +149,19 @@ class HomeView extends StatelessWidget {
   ) {
     return Row(
       children: [
-        Expanded(child: _annualIncomeInput(l10n, homeCubit)),
-        const SizedBox(
-          width: OriginSpacing.xx,
+        Expanded(
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 112),
+            child: _annualIncomeInput(l10n, homeCubit),
+          ),
         ),
-        Expanded(child: _monthlyCostsInput(l10n, homeCubit)),
+        const SizedBox(width: OriginSpacing.xx),
+        Expanded(
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 112),
+            child: _monthlyCostsInput(l10n, homeCubit),
+          ),
+        ),
       ],
     );
   }
