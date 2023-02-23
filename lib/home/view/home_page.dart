@@ -73,9 +73,13 @@ class HomeView extends StatelessWidget {
                           else
                             _inputsMobileLayout(context, l10n, homeCubit),
                           OriginOutlinedButton(
-                            onPressed: () => homeCubit.onContinue(l10n),
+                            onPressed: homeCubit.formIsValid
+                                ? () async {
+                                    await homeCubit.onContinue();
+                                  }
+                                : null,
                             child: Text(l10n.homeContinueButton),
-                          ),
+                          )
                         ],
                       );
                     },
@@ -97,7 +101,7 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: OriginSpacing.xxxxs,
               )
             ],
@@ -111,7 +115,7 @@ class HomeView extends StatelessWidget {
     return FinancialWellnessInput(
       label: l10n.homeAnnualIncomeInputLabel,
       onChanged: homeCubit.annualIncomeChanged,
-      errorText: homeCubit.annualIncomeErrorText,
+      errorText: homeCubit.annualIncomeInput.errorText(l10n),
       homeCubit: homeCubit,
     );
   }
@@ -120,7 +124,7 @@ class HomeView extends StatelessWidget {
     return FinancialWellnessInput(
       label: l10n.homeMonthlyCostsInputLabel,
       onChanged: homeCubit.monthlyCostsChanged,
-      errorText: homeCubit.monthlyCostsErrorText,
+      errorText: homeCubit.monthlyCostsInput.errorText(l10n),
       homeCubit: homeCubit,
     );
   }

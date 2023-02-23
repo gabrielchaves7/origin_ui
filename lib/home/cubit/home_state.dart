@@ -14,21 +14,30 @@ class HomeState extends Equatable {
   final String? monthlyCostsErrorText;
 
   @override
-  List<Object?> get props => [financialWellnessForm];
+  List<Object?> get props => [
+        financialWellnessForm,
+        annualIncomeErrorText,
+        monthlyCostsErrorText,
+      ];
 
   HomeState copyWith({
-    required AnnualIncomeInput annualIncomeInput,
-    required MonthlyCostsInput monthlyCostsInput,
+    AnnualIncomeInput? annualIncomeInput,
+    MonthlyCostsInput? monthlyCostsInput,
     String? annualIncomeErrorText,
     String? monthlyCostsErrorText,
+    bool? isLoading,
   }) {
     return HomeState(
       financialWellnessForm: FinancialWellnessForm(
-        annualIncomeInput: annualIncomeInput,
-        monthlyCostsInput: monthlyCostsInput,
+        annualIncomeInput:
+            annualIncomeInput ?? financialWellnessForm.annualIncomeInput,
+        monthlyCostsInput:
+            monthlyCostsInput ?? financialWellnessForm.monthlyCostsInput,
       ),
-      annualIncomeErrorText: annualIncomeErrorText,
-      monthlyCostsErrorText: monthlyCostsErrorText,
+      annualIncomeErrorText:
+          annualIncomeErrorText ?? this.annualIncomeErrorText,
+      monthlyCostsErrorText:
+          monthlyCostsErrorText ?? this.monthlyCostsErrorText,
     );
   }
 }

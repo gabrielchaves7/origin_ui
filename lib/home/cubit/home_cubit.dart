@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:domain/origin_ui_usecases.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
+import 'package:origin_ui/app/view/app.dart';
 
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
 import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
@@ -32,29 +34,26 @@ class HomeCubit extends Cubit<HomeState> {
   void annualIncomeChanged(String value) => emit(
         state.copyWith(
           annualIncomeInput: AnnualIncomeInput.dirty(value: value),
-          monthlyCostsInput: monthlyCostsInput,
-          annualIncomeErrorText: annualIncomeErrorText,
-          monthlyCostsErrorText: monthlyCostsErrorText,
         ),
       );
 
   void monthlyCostsChanged(String value) => emit(
         state.copyWith(
-          annualIncomeInput: annualIncomeInput,
           monthlyCostsInput: MonthlyCostsInput.dirty(value: value),
-          annualIncomeErrorText: annualIncomeErrorText,
-          monthlyCostsErrorText: monthlyCostsErrorText,
         ),
       );
 
-  void onContinue(AppLocalizations l10n) {
-    emit(
-      state.copyWith(
-        annualIncomeInput: annualIncomeInput,
-        monthlyCostsInput: monthlyCostsInput,
-        annualIncomeErrorText: annualIncomeInput.errorText(l10n),
-        monthlyCostsErrorText: monthlyCostsInput.errorText(l10n),
-      ),
+  Future<void> onContinue() async {
+    if (state.financialWellnessForm.status.isValid) {
+      await getScore();
+    }
+  }
+
+  Future<void> getScore() async {
+    final score = await getIt<GetScoreUseCase>().call(
+      annualIncome: annualIncomeInput.value,
+      monthlyCosts: monthlyCostsInput.value,
     );
+    score.fold((l) => null, (r) => null);
   }
 }
