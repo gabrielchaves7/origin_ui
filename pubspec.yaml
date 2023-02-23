@@ -17,7 +17,7 @@ dependencies:
   formz: ^0.4.1
   intl: ^0.17.0
   origin_design_system:
-    path: ../origin_design_system
+    path: ./origin_design_system
   equatable: ^2.0.5
 
 dev_dependencies:
