@@ -9,6 +9,9 @@ environment:
 
 dependencies:
   bloc: ^8.1.1
+  domain:
+    path: "packages/domain"
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
@@ -16,9 +19,10 @@ dependencies:
     sdk: flutter
   formz: ^0.4.1
   intl: ^0.17.0
+  get_it: ^7.2.0
   origin_design_system:
-    path: ./origin_design_system
-  equatable: ^2.0.5
+    path: ../origin_design_system  
+
 
 dev_dependencies:
   bloc_test: ^9.1.1
