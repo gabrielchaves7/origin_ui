@@ -154,3 +154,9 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 [internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+
+
+## integration tests
+download chromedriver 
+run chromedriver on port 4444: ./chromedriver --port=4444
+flutter -d chrome drive --driver=test_driver/integration_test.dart --target=integration_test/main_test.dart --web-port=8080
