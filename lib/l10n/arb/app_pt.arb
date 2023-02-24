@@ -11,5 +11,12 @@
     "homeAnnualIncomeInputValueIsZeroError": "O salário anual deve ser maior que zero.",
     "homeMonthlyCostsInputInvalidError": "Os gastos mensais informado é inválido.",
     "homeMonthlyCostsInputValueIsZeroError": "Os gastos mensais deve ser maior que zero.",
-    "homeFooter": "Os seus dados financeiros são criptografados de maneira segura. Nunca compartilhamos ou vendemos os seus dados pessoais"
+    "homeFooter": "Os seus dados financeiros são criptografados de maneira segura. Nunca compartilhamos ou vendemos os seus dados pessoais",
+        "homeScoreHealthlyTitle": "Parabéns!",
+    "homeScoreHealthlySubtitle": "Você está em dia com a sua saúde financeira.",
+    "homeScoreMediumTitle": "Poderia ser melhor.",
+    "homeScoreMediumSubtitle": "A sua saúde financeira está dentro da média.",
+    "homeScoreLowSubtitle": "Cuidado!",
+    "homeScoreLowTitle": "A sua saúde financeira não está boa.",
+    "homeBackButton": "Voltar"
 }

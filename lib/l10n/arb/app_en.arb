@@ -11,5 +11,12 @@
     "homeAnnualIncomeInputValueIsZeroError": "Annual income must be greater than zero.",
     "homeMonthlyCostsInputInvalidError": "Monthly Costs value is invalid.",
     "homeMonthlyCostsInputValueIsZeroError": "Monthly Costs must be greater than zero.",
-    "homeFooter": "Your financial information is encrypted and secure. We'll never share or sell any of your personal data."
+    "homeFooter": "Your financial information is encrypted and secure. We'll never share or sell any of your personal data.",
+    "homeScoreHealthlyTitle": "Congratulations!",
+    "homeScoreHealthlySubtitle": "Your financial wellness score is Healthy.",
+    "homeScoreMediumTitle": "There is room for improvement.",
+    "homeScoreMediumSubtitle": "Your financial wellness score is Average.",
+    "homeScoreLowTitle": "Caution!",
+    "homeScoreLowSubtitle": "Your financial wellness score is Unhealthy.",
+    "homeBackButton": "Return"
 }

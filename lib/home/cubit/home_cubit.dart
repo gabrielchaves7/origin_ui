@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:domain/origin_ui_entities.dart';
 import 'package:domain/origin_ui_usecases.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
@@ -7,7 +8,6 @@ import 'package:origin_ui/app/view/app.dart';
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
 import 'package:origin_ui/home/forms/inputs/annual_income_input.dart';
 import 'package:origin_ui/home/forms/inputs/monthly_costs_input.dart';
-import 'package:origin_ui/l10n/l10n.dart';
 
 part 'home_state.dart';
 
@@ -50,10 +50,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> getScore() async {
-    final score = await getIt<GetScoreUseCase>().call(
+    final result = await getIt<GetScoreUseCase>().call(
       annualIncome: annualIncomeInput.value,
       monthlyCosts: monthlyCostsInput.value,
     );
-    score.fold((l) => null, (r) => null);
+    result.fold((l) => null, (score) => emit(state.copyWith(score: score)));
   }
 }
