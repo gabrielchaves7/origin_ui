@@ -24,7 +24,7 @@ class ScoreDataSourceImpl implements ScoreDataSource {
       'annualIncome': annualIncome,
       'monthlyCosts': monthlyCosts,
     };
-    final uri = Uri.http('localhost:3000', '/api/score', queryParameters);
+    final uri = Uri.http(Constants.apiBaseUrl, '/api/score', queryParameters);
     final response = await http.get(uri);
     return ScoreModel.fromJson(
       jsonDecode(response.body) as Map<String, dynamic>,

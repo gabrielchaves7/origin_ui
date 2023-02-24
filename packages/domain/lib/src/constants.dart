@@ -1,6 +1,6 @@
 abstract class Constants {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:3000/api',
+    defaultValue: 'localhost:3000',
   );
 }
