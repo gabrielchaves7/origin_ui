@@ -1,7 +1,7 @@
 {
     "@@locale": "pt",
-    "homeTitle": "Vamos descobrir a sua ",
-    "homeTitleBold": "pontuação de saúde financeira.",
+    "homeFrontTitle": "Vamos descobrir a sua ",
+    "homeFrontTitleBold": "pontuação de saúde financeira.",
     "homeCardTitle": "Teste de saúde financeira",
     "homeCardSubtitle": "Coloque as suas informações financeiras abaixo",
     "homeAnnualIncomeInputLabel": "Salário anual",
@@ -18,5 +18,7 @@
     "homeScoreMediumSubtitle": "A sua saúde financeira está dentro da média.",
     "homeScoreLowSubtitle": "Cuidado!",
     "homeScoreLowTitle": "A sua saúde financeira não está boa.",
-    "homeBackButton": "Voltar"
+    "homeBackButton": "Voltar",
+    "homeBackTitle": "Aqui está a sua ",
+    "homeBackTitleBold": "pontuação de saúde financeira."
 }

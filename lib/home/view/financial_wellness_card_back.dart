@@ -36,7 +36,10 @@ class FinancialWellnessCardBack extends StatelessWidget {
                     height: OriginSpacing.xxxx,
                   ),
                   OriginOutlinedButton(
-                    onPressed: controller.toggleCard,
+                    onPressed: () async {
+                      await controller.toggleCard();
+                      homeCubit.onCardFlipDone(cardIsFront: true);
+                    },
                     buttonType: OriginOutlinedButtonType.secondary,
                     child: Text(l10n.homeBackButton),
                   )

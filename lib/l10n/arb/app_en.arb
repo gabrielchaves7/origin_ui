@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
-    "homeTitle": "Let's find out your ",
-    "homeTitleBold": "financial wellness score.",
+    "homeFrontTitle": "Let's find out your ",
+    "homeFrontTitleBold": "financial wellness score.",
     "homeCardTitle": "Financial wellness test",
     "homeCardSubtitle": "Enter your financial information bellow",
     "homeAnnualIncomeInputLabel": "Annual income",
@@ -18,5 +18,7 @@
     "homeScoreMediumSubtitle": "Your financial wellness score is Average.",
     "homeScoreLowTitle": "Caution!",
     "homeScoreLowSubtitle": "Your financial wellness score is Unhealthy.",
-    "homeBackButton": "Return"
+    "homeBackButton": "Return",
+    "homeBackTitle": "Here's your ",
+    "homeBackTitleBold": "financial wellness score:"
 }

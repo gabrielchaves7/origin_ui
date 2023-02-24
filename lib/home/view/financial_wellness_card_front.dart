@@ -46,6 +46,7 @@ class FinancialWellnessCardFront extends StatelessWidget {
                       ? () async {
                           await homeCubit.onContinue();
                           await controller.toggleCard();
+                          homeCubit.onCardFlipDone(cardIsFront: false);
                         }
                       : null,
                   child: Text(l10n.homeContinueButton),

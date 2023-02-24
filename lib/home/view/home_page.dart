@@ -4,7 +4,6 @@ import 'package:origin_design_system/assets.dart';
 import 'package:origin_design_system/origin_design_system.dart';
 import 'package:origin_ui/home/cubit/home_cubit.dart';
 import 'package:origin_ui/home/view/financial_wellness_card.dart';
-import 'package:origin_ui/home/view/financial_wellness_input.dart';
 import 'package:origin_ui/l10n/l10n.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,21 +18,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  late FlipCardController _controller;
-
-  @override
-  void initState() {
-    _controller = FlipCardController();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +31,33 @@ class _HomeViewState extends State<HomeView> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: OriginSpacing.xx),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: l10n.homeTitle,
-                    style: OriginTextStyles.subtitle,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: l10n.homeTitleBold,
-                        style: OriginTextStyles.subtitleSemibold,
+                child: BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 500),
+                      transitionBuilder:
+                          (Widget child, Animation<double> animation) {
+                        return ScaleTransition(scale: animation, child: child);
+                      },
+                      child: RichText(
+                        key: ValueKey<bool>(state.cardIsFront),
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          text: state.cardIsFront
+                              ? l10n.homeFrontTitle
+                              : l10n.homeBackTitle,
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: state.cardIsFront
+                                  ? l10n.homeFrontTitleBold
+                                  : l10n.homeBackTitleBold,
+                              style: OriginTextStyles.subtitleSemibold,
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ),
               const FinancialWellnessCard(),

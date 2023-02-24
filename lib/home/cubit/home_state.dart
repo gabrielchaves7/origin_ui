@@ -6,6 +6,7 @@ class HomeState extends Equatable {
     this.annualIncomeErrorText,
     this.monthlyCostsErrorText,
     this.score,
+    this.cardIsFront = true,
   });
 
   final FinancialWellnessForm financialWellnessForm;
@@ -15,6 +16,8 @@ class HomeState extends Equatable {
   final String? monthlyCostsErrorText;
 
   final Score? score;
+
+  final bool cardIsFront;
 
   @override
   List<Object?> get props => [
@@ -28,8 +31,8 @@ class HomeState extends Equatable {
     MonthlyCostsInput? monthlyCostsInput,
     String? annualIncomeErrorText,
     String? monthlyCostsErrorText,
-    bool? isLoading,
     Score? score,
+    bool? cardIsFront,
   }) {
     return HomeState(
       financialWellnessForm: FinancialWellnessForm(
@@ -43,6 +46,7 @@ class HomeState extends Equatable {
       monthlyCostsErrorText:
           monthlyCostsErrorText ?? this.monthlyCostsErrorText,
       score: score ?? this.score,
+      cardIsFront: cardIsFront ?? this.cardIsFront,
     );
   }
 }

@@ -56,4 +56,10 @@ class HomeCubit extends Cubit<HomeState> {
     );
     result.fold((l) => null, (score) => emit(state.copyWith(score: score)));
   }
+
+  void onCardFlipDone({required bool cardIsFront}) => emit(
+        state.copyWith(
+          cardIsFront: cardIsFront,
+        ),
+      );
 }
