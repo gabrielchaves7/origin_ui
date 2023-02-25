@@ -20,9 +20,7 @@ void main() {
     );
   });
 
-  tearDown(() {
-    getIt.unregister<GetScoreUseCase>();
-  });
+  tearDown(getIt.reset);
 
   group('Home Cubit', () {
     blocTest(

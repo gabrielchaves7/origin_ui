@@ -23,9 +23,7 @@ void main() {
     );
   });
 
-  tearDown(() {
-    getIt.unregister<GetScoreUseCase>();
-  });
+  tearDown(getIt.reset);
 
   group('FinancialWellnessCardFront', () {
     final flipCardController = FlipCardController();

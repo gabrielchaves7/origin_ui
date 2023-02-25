@@ -25,9 +25,7 @@ void main() {
     );
   });
 
-  tearDown(() {
-    getIt.unregister<GetScoreUseCase>();
-  });
+  tearDown(getIt.reset);
 
   group('FinancialWellnessCard', () {
     Future<void> pumpApp({

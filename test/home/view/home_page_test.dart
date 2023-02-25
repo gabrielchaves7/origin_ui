@@ -24,9 +24,7 @@ void main() {
     );
   });
 
-  tearDown(() {
-    getIt.unregister<GetScoreUseCase>();
-  });
+  tearDown(getIt.reset);
 
   Future<void> pumpApp({
     required WidgetTester tester,
