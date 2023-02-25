@@ -20,5 +20,6 @@
     "homeScoreLowSubtitle": "Your financial wellness score is Unhealthy.",
     "homeBackButton": "Return",
     "homeBackTitle": "Here's your ",
-    "homeBackTitleBold": "financial wellness score:"
+    "homeBackTitleBold": "financial wellness score:",
+    "homeBackErrorText": "Something went wrong while trying to get your financial score."
 }

@@ -21,17 +21,13 @@ Future<Either<Failure, Score>> score(
   );
 }
 
-HomeState mockState(
-  ScoreStatusEnum status,
-  int annualIncome,
-  int monthlyCosts,
-) {
+HomeState mockState({
+  Score? score,
+  Failure? error,
+}) {
   return HomeState(
     financialWellnessForm: FinancialWellnessForm(),
-    score: Score(
-      status: status,
-      annualIncome: annualIncome,
-      monthlyCosts: monthlyCosts,
-    ),
+    score: score,
+    error: error,
   );
 }

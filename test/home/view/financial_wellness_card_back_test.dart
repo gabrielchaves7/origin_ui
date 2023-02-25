@@ -1,4 +1,6 @@
+import 'package:domain/origin_ui_entities.dart';
 import 'package:domain/origin_ui_enums.dart';
+import 'package:domain/origin_ui_errors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -33,8 +35,15 @@ void main() {
     }
 
     testWidgets('renders FinancialWellnessCardBack', (tester) async {
-      final state = mockState(ScoreStatusEnum.healthy, 1000, 10);
-      when(() => homeCubit.state).thenReturn(state);
+      when(() => homeCubit.state).thenReturn(
+        mockState(
+          score: Score(
+            annualIncome: 1000,
+            monthlyCosts: 10,
+            status: ScoreStatusEnum.healthy,
+          ),
+        ),
+      );
       await pumpApp(tester);
 
       expect(find.byType(OriginCard), findsOneWidget);
@@ -45,8 +54,15 @@ void main() {
     });
 
     testWidgets('should render healthly title and subtitle', (tester) async {
-      final state = mockState(ScoreStatusEnum.healthy, 1000, 10);
-      when(() => homeCubit.state).thenReturn(state);
+      when(() => homeCubit.state).thenReturn(
+        mockState(
+          score: Score(
+            annualIncome: 1000,
+            monthlyCosts: 10,
+            status: ScoreStatusEnum.healthy,
+          ),
+        ),
+      );
       await pumpApp(tester);
 
       expect(find.text('Congratulations!'), findsOneWidget);
@@ -57,8 +73,15 @@ void main() {
     });
 
     testWidgets('should render medium title and subtitle', (tester) async {
-      final state = mockState(ScoreStatusEnum.medium, 1000, 10);
-      when(() => homeCubit.state).thenReturn(state);
+      when(() => homeCubit.state).thenReturn(
+        mockState(
+          score: Score(
+            annualIncome: 1000,
+            monthlyCosts: 10,
+            status: ScoreStatusEnum.medium,
+          ),
+        ),
+      );
       await pumpApp(tester);
 
       expect(find.text('There is room for improvement.'), findsOneWidget);
@@ -69,13 +92,33 @@ void main() {
     });
 
     testWidgets('should render low title and subtitle', (tester) async {
-      final state = mockState(ScoreStatusEnum.low, 1000, 10);
-      when(() => homeCubit.state).thenReturn(state);
+      when(() => homeCubit.state).thenReturn(
+        mockState(
+          score: Score(
+            annualIncome: 1000,
+            monthlyCosts: 10,
+            status: ScoreStatusEnum.low,
+          ),
+        ),
+      );
       await pumpApp(tester);
 
       expect(find.text('Caution!'), findsOneWidget);
       expect(
         find.text('Your financial wellness score is Unhealthy.'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('should render error text when error is not null',
+        (tester) async {
+      final state = mockState(error: UnexpectedFailure());
+      when(() => homeCubit.state).thenReturn(state);
+      await pumpApp(tester);
+
+      expect(
+        find.text(
+            'Something went wrong while trying to get your financial score.'),
         findsOneWidget,
       );
     });

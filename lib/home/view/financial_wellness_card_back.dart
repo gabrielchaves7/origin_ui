@@ -19,36 +19,34 @@ class FinancialWellnessCardBack extends StatelessWidget {
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           final homeCubit = context.read<HomeCubit>();
-          Widget widget = OriginCard(child: Container());
-          if (homeCubit.state.score != null) {
-            widget = OriginCard(
-              child: Column(
-                children: [
-                  const OriginIcon(
-                    iconPath: Assets
-                        .origin_design_system$assets_origin_icon_circle_svg,
-                  ),
-                  const SizedBox(
-                    height: OriginSpacing.xxx,
-                  ),
+          return OriginCard(
+            child: Column(
+              children: [
+                const OriginIcon(
+                  iconPath:
+                      Assets.origin_design_system$assets_origin_icon_circle_svg,
+                ),
+                const SizedBox(
+                  height: OriginSpacing.xxx,
+                ),
+                if (homeCubit.error != null || homeCubit.state.score == null)
+                  _getErrorText(l10n)
+                else
                   ..._statusText(l10n, homeCubit.state.score!.status),
-                  const SizedBox(
-                    height: OriginSpacing.xxxx,
-                  ),
-                  OriginOutlinedButton(
-                    onPressed: () async {
-                      await controller.toggleCard();
-                      homeCubit.onCardFlipDone(cardIsFront: true);
-                    },
-                    buttonType: OriginOutlinedButtonType.secondary,
-                    child: Text(l10n.homeBackButton),
-                  )
-                ],
-              ),
-            );
-          }
-
-          return widget;
+                const SizedBox(
+                  height: OriginSpacing.xxxx,
+                ),
+                OriginOutlinedButton(
+                  onPressed: () async {
+                    await controller.toggleCard();
+                    homeCubit.onCardFlipDone(cardIsFront: true);
+                  },
+                  buttonType: OriginOutlinedButtonType.secondary,
+                  child: Text(l10n.homeBackButton),
+                )
+              ],
+            ),
+          );
         },
       ),
     );
@@ -84,5 +82,11 @@ class FinancialWellnessCardBack extends StatelessWidget {
       Text(title).headingSmall,
       Text(subtitle).paragraph,
     ];
+  }
+
+  Widget _getErrorText(AppLocalizations l10n) {
+    return Text(
+      l10n.homeBackErrorText,
+    ).headingSmall;
   }
 }

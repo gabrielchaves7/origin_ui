@@ -20,5 +20,6 @@
     "homeScoreLowTitle": "A sua saúde financeira não está boa.",
     "homeBackButton": "Voltar",
     "homeBackTitle": "Aqui está a sua ",
-    "homeBackTitleBold": "pontuação de saúde financeira."
+    "homeBackTitleBold": "pontuação de saúde financeira.",
+    "homeBackErrorText": "Algo deu errado ao tentar calcular a sua pontuação de saúde financeira."
 }

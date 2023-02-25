@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:domain/origin_ui_entities.dart';
+import 'package:domain/origin_ui_errors.dart';
 import 'package:domain/origin_ui_usecases.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
@@ -31,6 +32,8 @@ class HomeCubit extends Cubit<HomeState> {
   bool get formIsValid =>
       state.financialWellnessForm.status == FormzStatus.valid;
 
+  Failure? get error => state.error;
+
   void annualIncomeChanged(String value) => emit(
         state.copyWith(
           annualIncomeInput: AnnualIncomeInput.dirty(value: value),
@@ -54,7 +57,10 @@ class HomeCubit extends Cubit<HomeState> {
       annualIncome: annualIncomeInput.value,
       monthlyCosts: monthlyCostsInput.value,
     );
-    result.fold((l) => null, (score) => emit(state.copyWith(score: score)));
+    result.fold(
+      (l) => emit(state.copyWith(error: l)),
+      (score) => emit(state.copyWith(score: score)),
+    );
   }
 
   void onCardFlipDone({required bool cardIsFront}) => emit(

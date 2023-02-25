@@ -1,6 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars, inference_failure_on_function_invocation
 import 'package:bloc_test/bloc_test.dart';
+import 'package:dartz/dartz.dart';
 import 'package:domain/origin_ui_enums.dart';
+import 'package:domain/origin_ui_errors.dart';
 import 'package:domain/origin_ui_usecases.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formz/formz.dart';
@@ -167,6 +169,35 @@ void main() {
         expect(homeCubit.state.score?.annualIncome, 1000);
         expect(homeCubit.state.score?.monthlyCosts, 10);
         expect(homeCubit.state.score?.status, ScoreStatusEnum.healthy);
+      },
+    );
+
+    blocTest(
+      'should emit error state when getScoreUseCase returns a failure',
+      setUp: () {
+        when(
+          () => mockedGetScoreUseCase.call(
+            annualIncome: '1000',
+            monthlyCosts: '10',
+          ),
+        ).thenAnswer((_) => Future(() => Left(UnexpectedFailure())));
+      },
+      build: () {
+        return HomeCubit();
+      },
+      act: (HomeCubit homeCubit) async {
+        homeCubit
+          ..annualIncomeChanged('1000')
+          ..monthlyCostsChanged('10');
+        await homeCubit.onContinue();
+      },
+      expect: () => [
+        isA<HomeState>(),
+        isA<HomeState>(),
+        isA<HomeState>(),
+      ],
+      verify: (homeCubit) {
+        expect(homeCubit.state.error, const TypeMatcher<UnexpectedFailure>());
       },
     );
   });
