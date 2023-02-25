@@ -17,13 +17,13 @@ import '../../mocks/mocks.dart';
 void main() {
   final mockedGetScoreUseCase = MockGetScoreUseCase();
 
-  setUpAll(() {
+  setUp(() {
     getIt.registerFactory<GetScoreUseCase>(
       () => mockedGetScoreUseCase,
     );
   });
 
-  tearDownAll(() {
+  tearDown(() {
     getIt.unregister<GetScoreUseCase>();
   });
 
