@@ -14,7 +14,8 @@
         "development",
         "--target",
         "lib/main_development.dart",
-        "--web-port=8080"
+        "--web-port=8080",
+        "--dart-define=API_BASE_URL=localhost:3000"
       ]
     },
     {
@@ -22,14 +23,28 @@
       "request": "launch",
       "type": "dart",
       "program": "lib/main_staging.dart",
-      "args": ["--flavor", "staging", "--target", "lib/main_staging.dart"]
+      "args": [
+        "--flavor", 
+        "staging", 
+        "--target", 
+        "lib/main_staging.dart",        
+        "--web-port=8080",
+        "--dart-define=API_BASE_URL=localhost:3000"
+      ]
     },
     {
       "name": "Launch production",
       "request": "launch",
       "type": "dart",
       "program": "lib/main_production.dart",
-      "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+      "args": [
+        "--flavor", 
+        "production", 
+        "--target", 
+        "lib/main_production.dart",
+        "--web-port=8080",
+        "--dart-define=API_BASE_URL=localhost:3000"
+      ]
     }
   ]
 }

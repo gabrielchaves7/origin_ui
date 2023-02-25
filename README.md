@@ -1,36 +1,46 @@
-# Origin Ui
-
-![coverage][coverage_badge]
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-
+# Origin UI
 ---
 
 ## Getting Started 🚀
 
-This project contains 3 flavors:
+### Flutter
+The first thing you need is to setup flutter, please follow the steps: 
+1. https://docs.flutter.dev/get-started/install
+2. https://docs.flutter.dev/get-started/editor
+
+### Running the project
+This project has 3 environments:
 
 - development
 - staging
 - production
 
-To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+To run the desired environment either use the launch configuration in VSCode/Android Studio or use the following commands:
 
 ```sh
 # Development
-$ flutter run --flavor development --target lib/main_development.dart
+$ flutter run --target lib/main_development.dart
 
 # Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
+$ flutter run --target lib/main_staging.dart
 
 # Production
-$ flutter run --flavor production --target lib/main_production.dart
+$ flutter run --target lib/main_production.dart
 ```
 
-_\*Origin Ui works on Web._
+## Architecture
+The project architecture aims to separete the UI from the domain. The code under **/lib** folder is only responsible components and state management.
+
+All the code related with the domain (bussiness logic, api calls, json parse...) is under **/packages/domain** (check its readme too). 
+
+This way the only part of the domain visible to the UI are the use cases and entities.
+
+There is also another important package, **origin_design_system** , which contains the design system for the project, following the atomic design pattern.
 
 ---
-
 ## Running Tests 🧪
+
+### Unit tests
 
 To run all unit and widget tests use the following command:
 
@@ -48,41 +58,36 @@ $ genhtml coverage/lcov.info -o coverage/
 $ open coverage/index.html
 ```
 
----
+### Integration tests
+1. To run the integration tests locally on your machine you will first need to run the origin-api. You can do this following the README of the project. 
+2. Then download chromedriver:
+     https://chromedriver.chromium.org
+3. Run chromedriver at port 4444 on your machine: 
+    ```run chromedriver on port 4444: ./chromedriver --port=4444```
+4. Run the integrations tests:
+    ```flutter -d chrome drive --driver=test_driver/integration_test.dart --target=integration_test/main_test.dart --web-port=8080```
 
+---
 ## Working with Translations 🌐
 
 This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
 
-### Adding Strings
+### Localizations
 
-1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
-
-```arb
-{
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
-}
-```
-
-2. Then add a new key/value and description
+1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`. Then add a new key/value and description
 
 ```arb
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    },
     "helloWorld": "Hello World",
     "@helloWorld": {
         "description": "Hello World Text"
     }
 }
 ```
+
+2. Run the command to generate the new string :
+```flutter gen-l10n```
 
 3. Use the new string
 
@@ -96,67 +101,6 @@ Widget build(BuildContext context) {
 }
 ```
 
-### Adding Supported Locales
-
-Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info.plist` to include the new locale.
-
-```xml
-    ...
-
-    <key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>es</string>
-	</array>
-
-    ...
-```
-
-### Adding Translations
-
-1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
-
-```
-├── l10n
-│   ├── arb
-│   │   ├── app_en.arb
-│   │   └── app_es.arb
-```
-
-2. Add the translated strings to each `.arb` file:
-
-`app_en.arb`
-
-```arb
-{
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
-}
-```
-
-`app_es.arb`
-
-```arb
-{
-    "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
-    }
-}
-```
-
-[coverage_badge]: coverage_badge.svg
-[flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
-[internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+---
 
 
-## integration tests
-download chromedriver 
-run chromedriver on port 4444: ./chromedriver --port=4444
-flutter -d chrome drive --driver=test_driver/integration_test.dart --target=integration_test/main_test.dart --web-port=8080
