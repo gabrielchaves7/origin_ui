@@ -454,9 +454,11 @@ packages:
   origin_design_system:
     dependency: "direct main"
     description:
-      path: "../origin_design_system"
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "1887c8d30bada5a2a06d0e1f399e1997ecb94262"
+      url: "https://github.com/gabrielchaves7/origin_design_system"
+    source: git
     version: "0.1.0+1"
   package_config:
     dependency: transitive
