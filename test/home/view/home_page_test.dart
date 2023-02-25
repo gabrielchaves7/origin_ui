@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:domain/origin_ui_enums.dart';
 import 'package:domain/origin_ui_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -16,10 +16,14 @@ void main() {
     );
 
     expect(financialWellnessForm.status, equals(FormzStatus.invalid));
-    expect(financialWellnessForm.annualIncomeInput.status,
-        equals(FormzInputStatus.invalid));
-    expect(financialWellnessForm.monthlyCostsInput.status,
-        equals(FormzInputStatus.valid));
+    expect(
+      financialWellnessForm.annualIncomeInput.status,
+      equals(FormzInputStatus.invalid),
+    );
+    expect(
+      financialWellnessForm.monthlyCostsInput.status,
+      equals(FormzInputStatus.valid),
+    );
   });
 
   testWidgets(
@@ -31,10 +35,14 @@ void main() {
     );
 
     expect(financialWellnessForm.status, equals(FormzStatus.invalid));
-    expect(financialWellnessForm.annualIncomeInput.status,
-        equals(FormzInputStatus.valid));
-    expect(financialWellnessForm.monthlyCostsInput.status,
-        equals(FormzInputStatus.invalid));
+    expect(
+      financialWellnessForm.annualIncomeInput.status,
+      equals(FormzInputStatus.valid),
+    );
+    expect(
+      financialWellnessForm.monthlyCostsInput.status,
+      equals(FormzInputStatus.invalid),
+    );
   });
 
   testWidgets(
@@ -46,10 +54,14 @@ void main() {
     );
 
     expect(financialWellnessForm.status, equals(FormzStatus.invalid));
-    expect(financialWellnessForm.annualIncomeInput.status,
-        equals(FormzInputStatus.valid));
-    expect(financialWellnessForm.monthlyCostsInput.status,
-        equals(FormzInputStatus.invalid));
+    expect(
+      financialWellnessForm.annualIncomeInput.status,
+      equals(FormzInputStatus.valid),
+    );
+    expect(
+      financialWellnessForm.monthlyCostsInput.status,
+      equals(FormzInputStatus.invalid),
+    );
   });
 
   testWidgets(
@@ -61,10 +73,14 @@ void main() {
     );
 
     expect(financialWellnessForm.status, equals(FormzStatus.invalid));
-    expect(financialWellnessForm.annualIncomeInput.status,
-        equals(FormzInputStatus.valid));
-    expect(financialWellnessForm.monthlyCostsInput.status,
-        equals(FormzInputStatus.invalid));
+    expect(
+      financialWellnessForm.annualIncomeInput.status,
+      equals(FormzInputStatus.valid),
+    );
+    expect(
+      financialWellnessForm.monthlyCostsInput.status,
+      equals(FormzInputStatus.invalid),
+    );
   });
 
   testWidgets(
@@ -76,9 +92,13 @@ void main() {
     );
 
     expect(financialWellnessForm.status, equals(FormzStatus.valid));
-    expect(financialWellnessForm.annualIncomeInput.status,
-        equals(FormzInputStatus.valid));
-    expect(financialWellnessForm.monthlyCostsInput.status,
-        equals(FormzInputStatus.valid));
+    expect(
+      financialWellnessForm.annualIncomeInput.status,
+      equals(FormzInputStatus.valid),
+    );
+    expect(
+      financialWellnessForm.monthlyCostsInput.status,
+      equals(FormzInputStatus.valid),
+    );
   });
 }

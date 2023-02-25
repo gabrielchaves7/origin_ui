@@ -6,7 +6,10 @@ import 'package:origin_ui/home/cubit/home_cubit.dart';
 import 'package:origin_ui/home/forms/financial_wellness_form.dart';
 
 Future<Either<Failure, Score>> score(
-    ScoreStatusEnum status, int annualIncome, int monthlyCosts) {
+  ScoreStatusEnum status,
+  int annualIncome,
+  int monthlyCosts,
+) {
   return Future(
     () => Right(
       Score(
@@ -19,7 +22,10 @@ Future<Either<Failure, Score>> score(
 }
 
 HomeState mockState(
-    ScoreStatusEnum status, int annualIncome, int monthlyCosts) {
+  ScoreStatusEnum status,
+  int annualIncome,
+  int monthlyCosts,
+) {
   return HomeState(
     financialWellnessForm: FinancialWellnessForm(),
     score: Score(

@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   bloc: ^8.1.1
+  dartz: ^0.10.1
   domain:
     path: "packages/domain"
   equatable: ^2.0.5
@@ -18,13 +19,12 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   formz: ^0.4.1
-  intl: ^0.17.0
   get_it: ^7.2.0
+  intl: ^0.17.0  
   origin_design_system:
     git:
       url: https://github.com/gabrielchaves7/origin_design_system
       ref: main
-  dartz: ^0.10.1
 
 
 dev_dependencies:
