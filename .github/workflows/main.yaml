@@ -64,4 +64,4 @@ jobs:
         with:
           path: "./packages/domain/coverage/lcov.info"
           exclude: '**/data/datasource/** **/data/models/**'
-          min_coverage: 35
+          min_coverage: 100
