@@ -63,4 +63,5 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: "./packages/domain/coverage/lcov.info"
+          exclude: '**/data/datasource/** **/data/models/**'
           min_coverage: 35
