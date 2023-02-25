@@ -21,9 +21,9 @@ on:
         default: 80
 
 jobs:
-  clone: 
+  clone:
     runs-on: ubuntu-latest
-    steps:    
+    steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v3
 
@@ -47,11 +47,20 @@ jobs:
       - name: 🕵️ Analyze
         run: flutter analyze ${{inputs.analyze_directories}}
 
-      - name: 🧪 Run Tests
+      - name: 🧪 Run UI Tests
         run: flutter test --test-randomize-ordering-seed random --coverage
 
-      - name: 📊 Check Code Coverage
+      - name: 📊 Check UI Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
-          path: './coverage/lcov.info'
+          path: "./coverage/lcov.info"
+          min_coverage: 80
+
+      - name: 🧪 Run Domain Tests
+        run: cd ./packages/domain && flutter test --test-randomize-ordering-seed random --coverage 
+
+      - name: 📊 Check Domain Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: "./coverage/lcov.info"
           min_coverage: 80

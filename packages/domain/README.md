@@ -1,39 +1,32 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# Origin UI - Domain
+This package is where lives the domain related code for the Origin UI. The goal separating it from the ui code is :
+1. Clear separation between the UI and the bussiness logic/api. 
+2. Easy to change the domain if necessary. Since the UI only knows the use cases, it's much easier to update or change the domain.
+3. The package can be reused in other projects.
+---
+## Architecture
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+The package architecture is inspired on the Clean Architecture. And follows these layers:
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+UseCases (returns the entity) → Repository (bussiness logic) → DataSource (returns the model)
 
-## Features
+---
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Running tests
 
-## Getting started
+To run all unit tests make sure you are under /domain and then use the following command:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```sh
+$ flutter test --coverage --test-randomize-ordering-seed random
 ```
 
-## Additional information
+To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```sh
+# Generate Coverage Report
+$ genhtml /domain/coverage/lcov.info -o coverage/
+
+# Open Coverage Report
+$ open /domain/coverage/index.html
+```
