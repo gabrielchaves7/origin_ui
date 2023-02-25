@@ -7,10 +7,6 @@ on:
         required: false
         type: string
         default: "lib test"
-      coverage_excludes:
-        required: false
-        type: string
-        default: ""
       flutter_channel:
         required: false
         type: string
@@ -23,10 +19,6 @@ on:
         required: false
         type: number
         default: 80
-      working_directory:
-        required: false
-        type: string
-        default: "."
 
 jobs:
   clone: 
@@ -61,6 +53,5 @@ jobs:
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
-          path: ${{inputs.working_directory}}/coverage/lcov.info
-          exclude: ${{inputs.coverage_excludes}}
-          min_coverage: ${{inputs.min_coverage}}
+          path: './coverage/lcov.info'
+          min_coverage: 80
