@@ -12,7 +12,7 @@ void main() {
     await tester.enterText(find.byType(OriginTextField).first, '1000');
     await tester.enterText(find.byType(OriginTextField).last, '10');
     await tester.pumpAndSettle();
-    await tester.tap(find.byType(OriginOutlinedButton));
+    await tester.tap(find.byType(OriginOutlinedButton).first);
     await tester.pumpAndSettle();
 
     expect(find.text('Congratulations!').hitTestable(), findsOneWidget);

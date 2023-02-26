@@ -62,8 +62,8 @@ $ open coverage/index.html
 1. To run the integration tests locally on your machine you will first need to run the origin-api. You can do this following the README of the project. 
 2. Then download chromedriver:
      https://chromedriver.chromium.org
-3. Run chromedriver at port 4444 on your machine: 
-    ```run chromedriver on port 4444: ./chromedriver --port=4444```
+3. After the download complete, open the folder and run chromedriver at port 4444 on your machine: 
+    ```./chromedriver --port=4444```
 4. Run the integrations tests:
     ```flutter -d chrome drive --driver=test_driver/integration_test.dart --target=integration_test/main_test.dart --web-port=8080```
 
