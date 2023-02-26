@@ -42,8 +42,8 @@ void main() {
       await pumpApp(tester: tester);
       expect(find.byType(HomeView), findsOneWidget);
       expect(find.byType(FinancialWellnessCard), findsOneWidget);
-      expect(find.byType(OriginIcon), findsNWidgets(4));
-      expect(find.byType(OriginOutlinedButton), findsOneWidget);
+      expect(find.byType(OriginIcon), findsNWidgets(5));
+      expect(find.byType(OriginOutlinedButton), findsNWidgets(2));
 
       expect(
         find.text(
@@ -89,7 +89,7 @@ void main() {
       await tester.enterText(find.byType(OriginTextField).first, '1000');
       await tester.enterText(find.byType(OriginTextField).last, '10');
       await tester.pumpAndSettle();
-      await tester.tap(find.byType(OriginOutlinedButton));
+      await tester.tap(find.byType(OriginOutlinedButton).first);
       await tester.pumpAndSettle();
 
       expect(
