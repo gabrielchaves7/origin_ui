@@ -12,19 +12,24 @@ class ScoreRepositoryImpl implements ScoreRepository {
   final ScoreDataSource scoreDataSource;
 
   @override
-  Future<Either<Failure, Score>> get({
+  Future<Either<Failure, Score>> post({
     required String annualIncome,
     required String monthlyCosts,
   }) async {
     try {
-      final score = await scoreDataSource.get(
+      final score = await scoreDataSource.post(
         annualIncome: annualIncome,
         monthlyCosts: monthlyCosts,
       );
 
       return Right(score);
     } catch (e) {
-      return Left(UnexpectedFailure());
+      Failure failure = UnexpectedFailure();
+      if (e is Failure) {
+        failure = e;
+      }
+
+      return Left(failure);
     }
   }
 }

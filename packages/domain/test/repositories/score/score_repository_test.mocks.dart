@@ -40,13 +40,13 @@ class MockScoreDataSource extends _i1.Mock implements _i3.ScoreDataSource {
   }
 
   @override
-  _i4.Future<_i2.ScoreModel> get({
+  _i4.Future<_i2.ScoreModel> post({
     required String? annualIncome,
     required String? monthlyCosts,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
-          #get,
+          #post,
           [],
           {
             #annualIncome: annualIncome,
@@ -56,7 +56,7 @@ class MockScoreDataSource extends _i1.Mock implements _i3.ScoreDataSource {
         returnValue: _i4.Future<_i2.ScoreModel>.value(_FakeScoreModel_0(
           this,
           Invocation.method(
-            #get,
+            #post,
             [],
             {
               #annualIncome: annualIncome,

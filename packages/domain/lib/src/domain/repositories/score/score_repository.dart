@@ -4,7 +4,7 @@ import 'package:domain/src/domain/errors/failure.dart';
 
 // ignore: one_member_abstracts
 abstract class ScoreRepository {
-  Future<Either<Failure, Score>> get({
+  Future<Either<Failure, Score>> post({
     required String annualIncome,
     required String monthlyCosts,
   });

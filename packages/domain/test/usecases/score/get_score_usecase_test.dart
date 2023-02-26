@@ -27,7 +27,7 @@ void main() {
       final ScoreRepository mockedScoreRepository = MockScoreRepository();
 
       when(
-        mockedScoreRepository.get(annualIncome: '1000', monthlyCosts: '10'),
+        mockedScoreRepository.post(annualIncome: '1000', monthlyCosts: '10'),
       ).thenAnswer((_) async => Right(mockedScore));
 
       final getScoreUseCase = GetScoreUseCase(
@@ -38,7 +38,7 @@ void main() {
           await getScoreUseCase(annualIncome: '1000', monthlyCosts: '10');
 
       verify(
-        mockedScoreRepository.get(
+        mockedScoreRepository.post(
           annualIncome: '1000',
           monthlyCosts: '10',
         ),
@@ -60,7 +60,7 @@ void main() {
       final ScoreRepository mockedScoreRepository = MockScoreRepository();
 
       when(
-        mockedScoreRepository.get(annualIncome: '1000', monthlyCosts: '10'),
+        mockedScoreRepository.post(annualIncome: '1000', monthlyCosts: '10'),
       ).thenAnswer((_) async => Left(UnexpectedFailure()));
 
       final getScoreUseCase =
@@ -70,7 +70,7 @@ void main() {
           await getScoreUseCase(annualIncome: '1000', monthlyCosts: '10');
 
       verify(
-        mockedScoreRepository.get(
+        mockedScoreRepository.post(
           annualIncome: '1000',
           monthlyCosts: '10',
         ),

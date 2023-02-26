@@ -118,7 +118,8 @@ void main() {
 
       expect(
         find.text(
-            'Something went wrong while trying to get your financial score.'),
+          'Something went wrong while trying to get your financial score.',
+        ),
         findsOneWidget,
       );
     });

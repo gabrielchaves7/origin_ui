@@ -27,19 +27,19 @@ void main() {
       final ScoreDataSource mockedScoreDataSource = MockScoreDataSource();
 
       when(
-        mockedScoreDataSource.get(annualIncome: '2000', monthlyCosts: '40'),
+        mockedScoreDataSource.post(annualIncome: '2000', monthlyCosts: '40'),
       ).thenAnswer((_) async => mockedScore);
 
       final ScoreRepository scoreRepository =
           ScoreRepositoryImpl(scoreDataSource: mockedScoreDataSource);
 
-      final result = await scoreRepository.get(
+      final result = await scoreRepository.post(
         annualIncome: '2000',
         monthlyCosts: '40',
       );
 
       verify(
-        mockedScoreDataSource.get(
+        mockedScoreDataSource.post(
           annualIncome: '2000',
           monthlyCosts: '40',
         ),
@@ -61,19 +61,19 @@ void main() {
       final ScoreDataSource mockedScoreDataSource = MockScoreDataSource();
 
       when(
-        mockedScoreDataSource.get(annualIncome: '2000', monthlyCosts: '40'),
+        mockedScoreDataSource.post(annualIncome: '2000', monthlyCosts: '40'),
       ).thenThrow((_) async => Exception());
 
       final ScoreRepository scoreRepository =
           ScoreRepositoryImpl(scoreDataSource: mockedScoreDataSource);
 
-      final result = await scoreRepository.get(
+      final result = await scoreRepository.post(
         annualIncome: '2000',
         monthlyCosts: '40',
       );
 
       verify(
-        mockedScoreDataSource.get(
+        mockedScoreDataSource.post(
           annualIncome: '2000',
           monthlyCosts: '40',
         ),

@@ -42,13 +42,13 @@ class MockScoreRepository extends _i1.Mock implements _i3.ScoreRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Score>> get({
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Score>> post({
     required String? annualIncome,
     required String? monthlyCosts,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
-          #get,
+          #post,
           [],
           {
             #annualIncome: annualIncome,
@@ -59,7 +59,7 @@ class MockScoreRepository extends _i1.Mock implements _i3.ScoreRepository {
             _FakeEither_0<_i5.Failure, _i6.Score>(
           this,
           Invocation.method(
-            #get,
+            #post,
             [],
             {
               #annualIncome: annualIncome,

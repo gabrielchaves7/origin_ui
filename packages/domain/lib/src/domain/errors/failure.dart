@@ -1,5 +1,15 @@
-abstract class Failure {}
+abstract class Failure {
+  Failure();
+}
 
-class UnexpectedFailure extends Failure {}
+class UnexpectedFailure extends Failure implements Exception {
+  UnexpectedFailure();
+}
 
-class UnexpectedValue extends Failure {}
+class UnexpectedValue extends Failure implements Exception {
+  UnexpectedValue();
+}
+
+class HttpResponseError extends Failure implements Exception {
+  HttpResponseError();
+}

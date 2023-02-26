@@ -1,31 +1,31 @@
 import 'dart:convert';
-
-import 'package:domain/src/constants.dart';
 import 'package:domain/src/data/models/score/score_model.dart';
-import 'package:http/http.dart' as http;
+import 'package:domain/src/http/http_provider.dart';
 
 // ignore: one_member_abstracts
 abstract class ScoreDataSource {
-  Future<ScoreModel> get({
+  Future<ScoreModel> post({
     required String annualIncome,
     required String monthlyCosts,
   });
 }
 
 class ScoreDataSourceImpl implements ScoreDataSource {
-  ScoreDataSourceImpl();
+  ScoreDataSourceImpl({required this.http});
+  final IHttpProvider http;
 
   @override
-  Future<ScoreModel> get({
+  Future<ScoreModel> post({
     required String annualIncome,
     required String monthlyCosts,
   }) async {
-    final queryParameters = {
-      'annualIncome': annualIncome,
-      'monthlyCosts': monthlyCosts,
-    };
-    final uri = Uri.http(Constants.apiBaseUrl, '/api/score', queryParameters);
-    final response = await http.get(uri);
+    final response = await http.post(
+      '/api/score',
+      body: {
+        'annualIncome': int.parse(annualIncome),
+        'monthlyCosts': int.parse(monthlyCosts),
+      },
+    );
     return ScoreModel.fromJson(
       jsonDecode(response.body) as Map<String, dynamic>,
     );

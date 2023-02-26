@@ -14,7 +14,7 @@ class GetScoreUseCase {
     required String annualIncome,
     required String monthlyCosts,
   }) async {
-    return scoreRepository.get(
+    return scoreRepository.post(
       annualIncome: annualIncome,
       monthlyCosts: monthlyCosts,
     );
