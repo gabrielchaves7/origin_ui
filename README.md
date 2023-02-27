@@ -68,6 +68,11 @@ $ open coverage/index.html
     ```flutter -d chrome drive --driver=test_driver/integration_test.dart --target=integration_test/main_test.dart --web-port=8080```
 
 ---
+
+## Continuous Integration 🤖
+On each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Workflows][very_good_coverage_link] for Code coverage.
+
+---
 ## Working with Translations 🌐
 
 This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
@@ -103,4 +108,7 @@ Widget build(BuildContext context) {
 
 ---
 
+[internationalization_link]: https://docs.flutter.dev/development/accessibility-and-localization/internationalization
+[flutter_localizations_link]: https://pub.dev/packages/flutter_localization
 
+[very_good_coverage_link]: https://github.com/marketplace/actions/very-good-coverage
