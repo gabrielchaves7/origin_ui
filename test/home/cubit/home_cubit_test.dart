@@ -22,7 +22,10 @@ void main() {
     );
   });
 
-  tearDown(getIt.reset);
+  tearDown(() {
+    getIt.reset();
+    reset(mockedGetScoreUseCase);
+  });
 
   group('Home Cubit', () {
     blocTest(

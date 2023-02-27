@@ -23,7 +23,10 @@ void main() {
     );
   });
 
-  tearDown(getIt.reset);
+  tearDown(() {
+    getIt.reset();
+    reset(mockedGetScoreUseCase);
+  });
 
   group('FinancialWellnessCardFront', () {
     final flipCardController = FlipCardController();
