@@ -30,16 +30,6 @@ $ flutter run --target lib/main_staging.dart
 # Production
 $ flutter run --target lib/main_production.dart
 ```
-
-## Architecture
-The project architecture aims to separete the UI from the domain. The code under **/lib** folder is only responsible components and state management.
-
-All the code related with the domain (bussiness logic, api calls, json parse...) is under **/packages/domain** (check its readme too). 
-
-This way the only part of the domain visible to the UI are the use cases and entities.
-
-There is also another important package, **origin_design_system** , which contains the design system for the project, following the atomic design pattern.
-
 ---
 ## Running Tests 🧪
 
@@ -110,6 +100,20 @@ Widget build(BuildContext context) {
 ```
 
 ---
+
+## Architecture and structure decisions
+The project architecture aims to separete the UI from the domain. The code under **/lib** folder is only responsible components and state management.
+
+All the code related with the domain (bussiness logic, api calls, json parse...) is under **/packages/domain** (check its readme too). Since the domain is a package, we can reuse it on other projects and more important than this, since the UI only knows the use cases it`s easier to change our domain layer.
+
+There is also another important package, **origin_design_system** , which contains the design system for the project, following the atomic design pattern. The design system enable to reuse the components on every new or old project keeping the same standard.
+
+### Next steps
+1. Add error monitoring and logging to the project.
+2. Setup firebase for analytics
+3. Feature flags
+
+--- 
 
 [internationalization_link]: https://docs.flutter.dev/development/accessibility-and-localization/internationalization
 [flutter_localizations_link]: https://pub.dev/packages/flutter_localization
