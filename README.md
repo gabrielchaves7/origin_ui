@@ -22,13 +22,13 @@ To run the desired environment either use the launch configuration in VSCode/And
 
 ```sh
 # Development
-$ flutter run --target lib/main_development.dart
+$ flutter run --target lib/main_development.dart --web-port=8080
 
 # Staging
-$ flutter run --target lib/main_staging.dart
+$ flutter run --target lib/main_staging.dart --web-port=8080
 
 # Production
-$ flutter run --target lib/main_production.dart
+$ flutter run --target lib/main_production.dart --web-port=8080
 ```
 ---
 ## Running Tests 🧪
