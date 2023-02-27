@@ -17,7 +17,9 @@ void main() {
 
     expect(find.text('Congratulations!').hitTestable(), findsOneWidget);
     expect(
-      find.text('Your financial wellness score is Healthy.').hitTestable(),
+      find
+          .text('Your financial wellness score is Healthy.', findRichText: true)
+          .hitTestable(),
       findsOneWidget,
     );
 

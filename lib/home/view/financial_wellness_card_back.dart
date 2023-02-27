@@ -55,17 +55,20 @@ class FinancialWellnessCardBack extends StatelessWidget {
   List<Widget> _statusText(AppLocalizations l10n, ScoreStatusEnum scoreStatus) {
     var title = l10n.homeScoreHealthlyTitle;
     var subtitle = l10n.homeScoreHealthlySubtitle;
+    var subtitleBold = l10n.homeScoreHealthlySubtitleBold;
     var color = OriginColors.green500;
     var selectedAmount = 3;
 
     if (scoreStatus == ScoreStatusEnum.medium) {
       title = l10n.homeScoreMediumTitle;
       subtitle = l10n.homeScoreMediumSubtitle;
+      subtitleBold = l10n.homeScoreMediumSubtitleBold;
       color = OriginColors.sun700;
       selectedAmount = 2;
     } else if (scoreStatus == ScoreStatusEnum.low) {
       title = l10n.homeScoreLowTitle;
       subtitle = l10n.homeScoreLowSubtitle;
+      subtitleBold = l10n.homeScoreLowSubtitleBold;
       color = OriginColors.red700;
       selectedAmount = 1;
     }
@@ -80,7 +83,19 @@ class FinancialWellnessCardBack extends StatelessWidget {
         height: OriginSpacing.xxx,
       ),
       Text(title).headingSmall,
-      Text(subtitle).paragraph,
+      RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          text: subtitle,
+          style: OriginTextStyles.paragraph,
+          children: <TextSpan>[
+            TextSpan(
+              text: subtitleBold,
+              style: OriginTextStyles.paragraphSemibold,
+            ),
+          ],
+        ),
+      ),
     ];
   }
 

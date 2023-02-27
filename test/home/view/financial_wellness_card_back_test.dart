@@ -67,7 +67,10 @@ void main() {
 
       expect(find.text('Congratulations!'), findsOneWidget);
       expect(
-        find.text('Your financial wellness score is Healthy.'),
+        find.text(
+          'Your financial wellness score is Healthy.',
+          findRichText: true,
+        ),
         findsOneWidget,
       );
     });
@@ -86,7 +89,10 @@ void main() {
 
       expect(find.text('There is room for improvement.'), findsOneWidget);
       expect(
-        find.text('Your financial wellness score is Average.'),
+        find.text(
+          'Your financial wellness score is Average.',
+          findRichText: true,
+        ),
         findsOneWidget,
       );
     });
@@ -105,7 +111,10 @@ void main() {
 
       expect(find.text('Caution!'), findsOneWidget);
       expect(
-        find.text('Your financial wellness score is Unhealthy.'),
+        find.text(
+          'Your financial wellness score is Unhealthy.',
+          findRichText: true,
+        ),
         findsOneWidget,
       );
     });
