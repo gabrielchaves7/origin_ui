@@ -2,7 +2,10 @@
 ---
 
 ## Getting Started 🚀
+### Overview
+The project aims to helps people putting their financial lives on track. To achieve this, we offer a tool to calculate person financial wellness based on person analyzing annual income and monthly costs. 
 
+--- 
 ### Flutter
 The first thing you need is to setup flutter, please follow the steps: 
 1. https://docs.flutter.dev/get-started/install
