@@ -456,7 +456,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "8a00e4cc4f31370c48d9e083ecdff547139a928d"
+      resolved-ref: "27f5eef982fb0dcb74ba19620df7b860225305aa"
       url: "https://github.com/gabrielchaves7/origin_design_system"
     source: git
     version: "0.1.0+1"
