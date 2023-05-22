@@ -8,7 +8,7 @@ environment:
   flutter: 3.7.1
 
 dependencies:
-  bloc: ^8.1.1
+  bloc: ^8.1.2
   dartz: ^0.10.1
   domain:
     path: "packages/domain"
