@@ -19,7 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   formz: ^0.4.1
-  get_it: ^7.2.0
+  get_it: ^7.6.0
   intl: ^0.17.0  
   origin_design_system:
     git:
