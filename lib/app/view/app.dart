@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:origin_design_system/origin_design_system.dart';
 import 'package:origin_ui/home/view/home_page.dart';
-import 'package:origin_ui/l10n/l10n.dart';
+import 'package:origin_ui/l10n/arb/app_localizations.dart';
 
 final getIt = GetIt.instance;
 

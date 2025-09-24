@@ -1,5 +1,5 @@
 import 'package:formz/formz.dart';
-import 'package:origin_ui/l10n/l10n.dart';
+import 'package:origin_ui/l10n/arb/app_localizations.dart';
 
 enum AnnualIncomeInputError { invalid, valueIsZero }
 
